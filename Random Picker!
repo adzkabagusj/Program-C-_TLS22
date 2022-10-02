@@ -1,0 +1,32 @@
+// RANDOM PICKER! ===>>> sebuah program untuk menentukan sesuatu secara random dengan jumlah kandidat yang ditentukan oleh user
+
+#include <iostream>
+#include <time.h> // utk mencegah mendapatkan pilihan random yang sama di setiap code run
+#include <string> // call string data type library
+
+using namespace std;
+
+int main(){
+    string pickwhat; // set data type string
+    int jumlah_kandidat, i;
+    srand(time(NULL)); // set seed => 0
+    
+    cout << "Apa yang ingin kamu tentukan? (cth: yang bayar makan): ";
+    getline(cin,pickwhat); // taking input as pickwhat into array
+    
+    cout << "berapa jumlah kandidatnya? ===> ";
+    cin >> jumlah_kandidat;
+    
+    string arr[jumlah_kandidat]; // membuat array dengan jumlah element sesuai dengan input user
+    int RanIndex = rand() % jumlah_kandidat; // memilih angka yang merepresentasikan posisi element array dengan domain 0 sampai jumlah_kandidat 
+    
+    for(i=0; i<jumlah_kandidat; i++){
+        cout << "kandidat ke " << i+1 << ": ";
+        cin >> arr[i]; // memasukan input-an user ke arr
+    }
+    
+    cout << "\n" << pickwhat << " ===> " << arr[RanIndex]; // print out yg terpilih
+    
+    return 0;
+    
+}
